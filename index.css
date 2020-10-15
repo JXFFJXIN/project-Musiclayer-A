@@ -1,0 +1,205 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    height:100%;
+    /* 色相 饱和度  亮度 */
+    background: hsl(194,66%,49%);
+    transition: background .2s;
+}
+.player {
+    position: absolute;
+    left: 98%;
+    top: 98%;
+    transform: translate(-100%,-100%);
+}
+.player .player_nav{
+    height: 80px;
+    background: #fff;
+    border-radius: 7px;
+    padding: 15px 25px;
+    display: flex;
+}
+.player .player_nav .nav_CD{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    left: 10px;
+    margin-right: 40px;
+    top: -50%;
+}
+.player .player_nav .nav_CD::after{
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+.player.play .player_nav .nav_CD::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, .3);
+}
+.player .player_nav .nav_CD .CD_data{
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.player .player_nav .nav_CD .CD_data.active{
+    display:block
+}
+.player .player_nav .nav_control{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.player .player_nav .nav_control>div{
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.player .player_nav .nav_control>div:hover{
+    background: rgb(175, 209, 97);
+}
+.player .player_nav .nav_control>div:hover svg{
+    fill: #fff;
+}
+.player .player_nav .nav_control .icon{
+    width: 2em;
+    height: 2em;
+    font-size: 30px;
+    fill: rgb(175, 209, 97);
+    cursor: pointer;
+}
+.player .player_nav .nav_control .control_prev .icon{
+    transform: rotate(180deg);
+}
+.player .player_nav .nav_control .control_play .icon{
+    font-size: 18px;
+}
+.player .player_nav .nav_control .control_play .icon.pause{
+    display: none;
+}
+.player.play .player_nav .nav_control .control_play .icon.pause{
+    display: block;
+}
+.player.play .player_nav .nav_control .control_play .icon.play{
+    display: none;
+}
+
+/* .player .player_list{
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    left: 2.5%;
+    top: 0px;
+    border-radius: 5px;
+    background:rgba(240, 224, 11, 0.63);
+    text-align: center;
+    z-index: -1;
+    color: seashell;
+    font-size: 15px;
+} */
+.player .player_backMask{
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    left: 2.5%;
+    top: 0px;
+    border-radius: 5px;
+    background:rgba(240, 224, 11, 0.63);
+    text-align: center;
+    z-index: -1;
+    color: seashell;
+    font-size: 15px;
+}
+.player .player_timeLine{
+    width: 220px;
+    height: 4px;
+    position: absolute;
+    right:2%;
+    top: 92%;
+    background: #d7dce2;
+}
+.player_timeLine .player_bar{
+    width: 0;
+    height: 4px;
+    background-color:rgb(175, 209, 97);
+}
+.rishi{
+    position: relative;
+    width:30%;
+    height:30%;
+    margin:0 auto;
+}
+.rishi .circle{
+    position: absolute;
+    width: 20%;
+    padding-top: 20%;
+    border-radius: 50%;
+    left:30%;
+    top:30%;
+}
+.rishi .circle.sun{
+    background: #ffff77;
+    box-shadow: 0 0 50px #ffff77;
+}
+.rishi .circle.moon{
+    left:52%;
+    cursor: pointer;
+    box-shadow: inset 5px 5px 50px rgba(255,255,119,0.3);
+}
+.rishi .pre {
+    position: absolute;
+    top: 75%;
+    left: 36%;
+    width: 10%;
+    height: 40px;
+    text-align: center;
+    color: rgb(255, 253, 239);
+    font-weight:blod;
+}
+.lrc-container{
+    overflow: hidden;
+    width: 80%;
+    height: 200px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    position: relative;
+    color: #888;
+}
+.lrc-container ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    transition: margin-top .7s;
+}
+.lrc-container ul li {
+    height: 30px;
+    line-height: 30px;
+    transition: .7s;
+}
+.lrc-container ul li.active{
+    color: #fff;
+}
